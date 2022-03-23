@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2f4fe0b2;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: xx-large;
+}
+
+.container {
+  width: 50%;
+  height: auto;
+  padding: 0;
+}
+
+.btn {
+  align-content: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.botonBuscar {
+  align-self: center;
+}/*# sourceMappingURL=estilos.css.map */

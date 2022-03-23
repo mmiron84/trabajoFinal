@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+$azul:#2f4fe0b2;
+
+
+
+body{
+    background-color: $azul;
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+label{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+}
+
+.container{
+    width: 50%;
+    height:auto;
+    padding: 0;
+   
+}
+
+.btn{
+    align-content: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.botonBuscar{
+align-self: center;
+}
+
