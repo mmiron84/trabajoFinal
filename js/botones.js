@@ -67,7 +67,6 @@ function guardarTarea()
                 estado:false, 
                 fechaFinal :`${fechaFormato[2]}/ ${fechaFormato[1]} / ${fechaFormato[0]} `,
                 }
-                console.log(nuevaTarea);
             arrayTareas.push(nuevaTarea);
             document.querySelector("#ingresarTareaInput").value="";
             }
