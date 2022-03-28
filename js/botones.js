@@ -31,7 +31,7 @@ function programarBotonGuardarTarea()
 // funcion guardar tarea 
 function guardarTarea()
 {
-// declaro la constante ValorTarea para que guarde lo que tengp en ingresarTareaInput    
+// declaro la constante ValorTarea para que guarde lo que tengo en ingresarTareaInput    
     const valorTarea = 
     document.querySelector("#ingresarTareaInput").value;
     const valorFecha = 
@@ -67,6 +67,20 @@ function guardarTarea()
                 estado:false, 
                 fechaFinal :`${fechaFormato[2]}/ ${fechaFormato[1]} / ${fechaFormato[0]} `,
                 }
+        // Agrego Toastifu para avisar que la tarea a sido guardada
+                Toastify({
+                    text: "Su tarea a sido guardada",
+                    duration:3000,
+                    style: {
+                        background: 'linear-gradient(to right, #00b09b, #96c92d)'
+                    },
+                    offset: {
+                        x: 100, 
+                        y: 300 
+                      }
+            
+
+                }).showToast();
             arrayTareas.push(nuevaTarea);
             document.querySelector("#ingresarTareaInput").value="";
             }
@@ -129,6 +143,19 @@ if(!tareaborrar)
     const index = arrayAux.indexOf(idBorrar);
     arrayTareas.splice(index,1);
     }
+    Toastify({
+        text: "La tarea a sido borrada",
+        duration:3000,
+        style: {
+            background: 'linear-gradient(to right, #00b09b, #96c92d)'
+        },
+        offset: {
+            x: 100, 
+            y: 300 
+          }
+
+
+    }).showToast();
     agregaTareas();  
     datosGuardados();
 
