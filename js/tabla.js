@@ -9,6 +9,7 @@ const table = document.createElement("table");
 // le agrego los atributos id y class
 table.setAttribute("id", "lista de tareas");
 table.setAttribute("class", "table table-hover table-bordered");
+table.style.backgroundColor="green";
 
 // genero el encabezado de la tabla
 table.innerHTML=`<thead>
@@ -20,23 +21,29 @@ table.innerHTML=`<thead>
         </tr>
         </thead>`;
 // genero el cuerpo de la tabla
-        const tbody = document.createElement("tbody");
-        // const ultimoRegistro = agregaTareas[agregaTareas.lenght-1]
-        // const nuevoId = ultimoRegistro.id + 1
-// recorro con forEach arrayTareas y cargando los valores ingresados
+const tbody = document.createElement("tbody");
+// const ultimoRegistro = agregaTareas[agregaTareas.lenght-1]
+// const nuevoId = ultimoRegistro.id + 1
+ // recorro con forEach arrayTareas y cargando los valores ingresados
         arrayTareas.forEach((tarea)=>{
         const tr = document.createElement("tr");
         tr.innerHTML=`<td>${tarea.descripcion}</td>
                         <td>${tarea.id}</td>  
                         <td>${tarea.estado}</td>
                         <td>${tarea.fechaFinal}</td>`;
+        tr.style.padding="10px";   
+        tr.style.backgroundColor= "grey"  ;   
         tbody.appendChild(tr);
+         // le doy la propiedad a cada fila de que sea arrastrable       
+        tr.setAttribute("draggable","true");
         })
-// pego la tabla en el Tbody
-//pego la tabla en el nodoTarea 
-table.appendChild(tbody);
-nodoTarea.appendChild(table);
-}
-
-
-
+                
+        // pego la tabla en el Tbody
+        //pego la tabla en el nodoTarea 
+        table.appendChild(tbody);
+        nodoTarea.appendChild(table);
+        }
+        
+        
+        
+        

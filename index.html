@@ -9,6 +9,7 @@
     <script lenguaje="javascript" src="js/proyecto1.js"></script>
     <script lenguaje="javascript" src="js/botones.js"></script>
     <script lenguaje="javascript" src="js/tabla.js"></script>
+    <script lenguaje="javascript" src="js/usuarios.js"></script>
     <link rel="stylesheet" href= "css/estilos.css">
     <title>Task list</title>
 </head>
@@ -21,15 +22,22 @@
         <h1>Bienvenido al Anotador de Tareas</h1>
         </span>
       </nav>
+      <div class="container my-5 text-center">
+      <div class="container my-5 text-center" id="usuarios"></div>
+      <button type="button" class="btn btn-warning" id="cambiarUsuario">Cambiar Usuario</button>
+    </div>
 </header>
 <main>
   <!-- contenedor donde alojo la parte donde ingreso las tareas y los botones -->
+  
   <div class="container">
     <div class="col-md-6 col-xs-12"></div>
+    
     <form class="form-group text-center" id="formulario">
     <label for="exampleFormControlTextarea1">Ingrese la nueva tarea</label>
     <input ng-model="yourTask"type="text"class="form-control"id="ingresarTareaInput" />
     <input ng-model="yourTask"type="date"class="form-control"id="fechaLimite"/>
+    
 
     <button type="button" class="btn btn-success" id="guardarTareaBtn">Guardar</button>
    
@@ -40,9 +48,13 @@
     <button type="button" class="btn btn-warning" id="botonRealizada">Realizada</button>
   </div>
 
-<div class="table-wrapper" id="divListaTareas">
-  //lista de tareas
-</div>
+  
+  <section class="tablas">
+<div class="table-wrapper" id="divListaTareas"></div>
+<!-- futuro uso de drag and drop -->
+<!-- <div id="tareaTerminada">tareas terminadas</div> -->
+    </section>
+
 
 </form>
 </div>

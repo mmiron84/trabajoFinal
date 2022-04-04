@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #2f4fe0b2;
+  background-color: rgba(47, 79, 224, 0.6980392157);
 }
 
 .navbar {
@@ -31,6 +31,7 @@ label {
 
 .btn {
   align-content: center;
+  align-items: center;
   margin: 0.5rem;
   padding: 0.5rem;
   font-family: "Courier New", Courier, monospace;

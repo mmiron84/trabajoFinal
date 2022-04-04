@@ -6,7 +6,8 @@ function init()
     programarInput();
     programarInputId();
     programarBotones();
-   
+    botonUser();
+
 }
 
 
@@ -66,6 +67,7 @@ function guardarTarea()
                 id:arrayTareas.length!==0? arrayTareas[arrayTareas.length-1].id+1:1, 
                 estado:false, 
                 fechaFinal :`${fechaFormato[2]}/ ${fechaFormato[1]} / ${fechaFormato[0]} `,
+                draggable:`true`
                 }
         // Agrego Toastifu para avisar que la tarea a sido guardada
                 Toastify({
@@ -77,7 +79,7 @@ function guardarTarea()
                     offset: {
                         x: 100, 
                         y: 300 
-                      }
+                    }
             
 
                 }).showToast();
@@ -86,7 +88,7 @@ function guardarTarea()
             }
             else
             {
-             faltaTarea();
+            faltaTarea();
             }
     }
 //llamo a la funcion agregarTareas() que esta en tabla.js 
@@ -96,14 +98,14 @@ datosGuardados();
 }
 
 
- function programarInput()
- {
+function programarInput()
+{
     //  programarInputTarea();
     const input = document.querySelector("#ingresarTareaInput");
     input.addEventListener("focus", (e)=>{
    // aplico operador avanzado AND     
         e.target.value===`ingrese una tarea` && (input.value="");
-      
+    
     })
 
     input.addEventListener("blur", (e)=>{
@@ -147,12 +149,12 @@ if(!tareaborrar)
         text: "La tarea a sido borrada",
         duration:3000,
         style: {
-            background: 'linear-gradient(to right, #00b09b, #96c92d)'
+        background: 'linear-gradient(to right, #00b09b, #96c92d)'
         },
         offset: {
             x: 100, 
             y: 300 
-          }
+        }
 
 
     }).showToast();
@@ -195,13 +197,15 @@ function tareaRealizada()
     const tareaRealizada = arrayTareas.find (tarea => tarea.id===idRealizada)
     if(idRealizada)
     {
-        const celda =arrayTareas[idRealizada-1].descripcion;
+        let celda =arrayTareas[idRealizada-1].descripcion;
         arrayTareas[idRealizada-1].fechaFinal ="TERMINADA";
+        arrayTareas[idRealizada-1].estado="true";
         arrayTareas[idRealizada-1].estado="true";
         agregaTareas();  
         datosGuardados();
         
     }
+
 }
 
 
