@@ -1,15 +1,14 @@
 // cargo la funcion init() y todos las funciones necesarias en js
 function init()
- {   
+ {  
     precarga();
     datosGuardados()
     programarInput();
     programarInputId();
     programarBotones();
     botonUser();
-
+    drag();
 }
-
 
 function programarBotones()
 {
@@ -23,10 +22,10 @@ function programarBotonGuardarTarea()
 {
     const guardarBtn=
     document.querySelector("#guardarTareaBtn");
-        guardarBtn.addEventListener("click", ()=>{
+    guardarBtn.addEventListener("click", ()=>{
 //llamo a la funcion guardar tarea        
-            guardarTarea();
-        })
+    guardarTarea();
+    })
 }
 
 // funcion guardar tarea 
@@ -67,9 +66,8 @@ function guardarTarea()
                 id:arrayTareas.length!==0? arrayTareas[arrayTareas.length-1].id+1:1, 
                 estado:false, 
                 fechaFinal :`${fechaFormato[2]}/ ${fechaFormato[1]} / ${fechaFormato[0]} `,
-                draggable:`true`
                 }
-        // Agrego Toastifu para avisar que la tarea a sido guardada
+                // Agrego Toastifu para avisar que la tarea a sido guardada
                 Toastify({
                     text: "Su tarea a sido guardada",
                     duration:3000,
@@ -80,21 +78,18 @@ function guardarTarea()
                         x: 100, 
                         y: 300 
                     }
-            
-
                 }).showToast();
             arrayTareas.push(nuevaTarea);
             document.querySelector("#ingresarTareaInput").value="";
             }
             else
             {
-            faltaTarea();
+                faltaTareaFecha();
             }
     }
 //llamo a la funcion agregarTareas() que esta en tabla.js 
 agregaTareas();
 datosGuardados();
-
 }
 
 
@@ -112,14 +107,13 @@ function programarInput()
     //aplico operador avanzado AND    
         e.target.value===`` && (e.target.value="ingrese una tarea");
     })
-
 }
 
 //Funcion que programa el boton Borrar
 function programarBotonBorrarTarea()
 {
-const borrarBtn=
-document.querySelector("#borrarTareaBtn");
+    const borrarBtn=
+    document.querySelector("#borrarTareaBtn");
     borrarBtn.addEventListener("click", ()=>{
 //llamo a la funcion borrar tarea
         borrarTarea();       
@@ -130,12 +124,11 @@ document.querySelector("#borrarTareaBtn");
 // funcion Borrar Tarea
 function borrarTarea()
 {
-const idBorrar= parseInt(document.querySelector("#ingresarIdInput").value);
-
+    const idBorrar= parseInt(document.querySelector("#ingresarIdInput").value);
 // valido si el index es mas grande que el largo del array
-const tareaborrar = arrayTareas.find(tarea =>tarea.id===idBorrar)
-if(!tareaborrar)
-    {
+    const tareaborrar = arrayTareas.find(tarea =>tarea.id===idBorrar)
+    if(!tareaborrar)
+     {
 // llamado a la funcion que contiene SweetAlert2
         errorID();
     }
@@ -155,14 +148,10 @@ if(!tareaborrar)
             x: 100, 
             y: 300 
         }
-
-
     }).showToast();
     agregaTareas();  
     datosGuardados();
-
 }
-
 
 //utilizo JSON para poder guardar mis datos en localStorage
 function datosGuardados()
@@ -170,14 +159,13 @@ function datosGuardados()
     localStorage.setItem("tareas", JSON.stringify(arrayTareas));
 }
 
-
 function precarga()
 {
     if(localStorage.getItem("tareas")!=null)
-{
+    {
     arrayTareas = 
     JSON.parse(localStorage.getItem("tareas"));
-}            
+    }            
 }
 
 // funcion que realiza la configuracion de boton tarea ralizada
@@ -186,7 +174,7 @@ function programarBotonRealizada()
     realizadaBtn=
     document.querySelector("#botonRealizada");
     realizadaBtn.addEventListener("click",()=>{
-        tareaRealizada();
+    tareaRealizada();
 
     })
 }
@@ -194,21 +182,18 @@ function programarBotonRealizada()
 function tareaRealizada()
 {
     const idRealizada= parseInt(document.querySelector("#ingresarIdInput").value);
-    const tareaRealizada = arrayTareas.find (tarea => tarea.id===idRealizada)
+    const tareaRealizada = arrayTareas.find (tarea => tarea.id===idRealizada);
     if(idRealizada)
     {
-        let celda =arrayTareas[idRealizada-1].descripcion;
+        let celda =arrayTareas[idRealizada-1];
         arrayTareas[idRealizada-1].fechaFinal ="TERMINADA";
-        arrayTareas[idRealizada-1].estado="true";
         arrayTareas[idRealizada-1].estado="true";
         agregaTareas();  
         datosGuardados();
+
         
     }
-
 }
-
-
 
 //  funcion para programar el input del boton ID
 function programarInputId()
